@@ -1,0 +1,180 @@
+<jsp:include page="/layout/header.jsp" flush="true" />
+<%@ page import="Action.*"%>
+<%@ page import="java.util.*"%>
+
+<%
+	/**
+	 * Updates:
+	 * 	1. Added site name to bottom header
+	 */
+	Map<String, List<String>> site = SiteAction.getSettings();
+%>
+<link href="/css/index.css" rel="stylesheet">
+
+<!-- carousel -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="carousel/css/style.css">
+<!-- carousel -->
+
+<div class="header-bottom">
+	<hr class="top-divider">
+	<div class="inner-header">
+		<ul class="header-right">
+			<li> <a href="/home/contact.jsp">Contact</a></li>
+			<li> <a href="/home/about.jsp">About Us</a></li>
+		</ul>
+		<ul class="header-left">
+			<li><span style="font-weight: bolder;font-size: 16px;">Welcome to the <% if(site!=null){ %> 
+					  <%= site.get("Site_name").get(0) %> <% } %>
+					  Store</span></li>
+		</ul>
+	</div>
+	<hr class="bottom-divider">
+</div>
+<%/*
+Map<String, List<String>> feats = ProductAction.getFeatured();
+if(feats != null){*/
+%>
+<h3>Featured Items</h3>
+<!--  
+<div class="thumbnail">
+	<div id="myCarousel" class="carousel slide">
+		<div class="carousel-inner">
+			<%/*
+			List<String> featProductIDs = feats.get("Product_ID");
+			System.out.println(featProductIDs.size());
+			for(int i=0; i<featProductIDs.size();i++){
+				Map<String, List<String>> featProduct = ProductAction.getProductByID(Integer.parseInt(featProductIDs.get(i)));
+				Map<String, List<String>> featProductImage = ImageAction.getImages(featProductIDs.get(i));
+				String img = "http://placehold.it/220x200";
+				if(featProductImage != null){
+					img = featProductImage.get("Image").get(0);
+				}*/
+			%>
+			<div class="item<%=/* i==0 ? " active" : "" */%>">
+				<div class="featured-image">
+					<img src="<%= /*img*/ %>" alt="thumb-nail" class="img-rounded">
+				</div>
+				<span class="featured-info">
+					<div>
+						<h5 class="featured-title"><a href="/product?id=<%= /*featProductIDs.get(i)*/ %>"><%= /*featProduct.get("Name").get(0)*/ %></a></h5>
+						<div class="product-price">$<%= /*String.format("%10.2f",Double.parseDouble(featProduct.get("Price").get(0))/100)*/ %></div>
+						<div class="rateit" data-rateit-value="<%= /*String.format("%10.1f",Double.parseDouble(featProduct.get("Rating").get(0))/2)*/ %>"
+							data-rateit-ispreset="true" data-rateit-readonly="true">
+						</div>
+						-->
+						<!-- <h2 class="featured-description">This is a description</h2> // NO ROOM TO IMPLEMENT THIS -->
+						<!-- 
+					</div>
+				</span>
+			</div>
+			<% /*}*/ %>
+		</div>
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">&#139;</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">&#155;</a>
+	</div>
+</div>-->
+<% /*} */%>
+
+
+<!-- carousel test-->
+			
+<%
+Map<String, List<String>> feats = ProductAction.getFeatured();
+if(feats != null){
+%>	
+<div id="ei-slider" class="ei-slider"><div class="ei-slider-loading" style="display: none;">Loading</div>
+	<ul class="ei-slider-large">
+    	<%
+			List<String> featProductIDs = feats.get("Product_ID");
+			System.out.println(featProductIDs.size());
+			String title="Title";
+			String price="$0";
+			String img = "http://placehold.it/220x200";
+			for(int i=0; i <= 6 ;i++){
+				if(i < featProductIDs.size()){
+					Map<String, List<String>> featProduct = ProductAction.getProductByID(Integer.parseInt(featProductIDs.get(i)));
+					Map<String, List<String>> featProductImage = ImageAction.getImages(featProductIDs.get(i));
+					if(featProductImage != null){
+						img = featProductImage.get("Image").get(0);
+					}
+					
+					title = featProduct.get("Name").get(0);
+					price = "$" + String.format("%10.2f",Double.parseDouble(featProduct.get("Price").get(0))/100);
+			}
+		%>
+        <li style="opacity: 1; z-index: 10;">
+        	<img src="<%= img %>" alt="image0<%= i+1 %>" style="width: 1277px; height: 498.828125px; margin-left: 0px; margin-top: -49.4140625px;">
+           	<div class="ei-title">
+                <h2 style="opacity: 1;"><%= title %></h2>
+                <h3 style="opacity: 1;"><%= price %></h3>
+            </div>
+        </li>
+       <% price="$0"; title="Title"; img = "http://placehold.it/220x200";} %>            
+	</ul><!-- ei-slider-large -->
+    <ul class="ei-slider-thumbs" style="display: block; max-width: 1050px;">
+        <li class="ei-slider-element" style="max-width: 150px; width: 14.285714285714286%;">Current</li>
+      	<% for(int i=0; i <= 6 ;i++){
+      		if(i < featProductIDs.size()){
+				Map<String, List<String>> featProduct = ProductAction.getProductByID(Integer.parseInt(featProductIDs.get(i)));
+				Map<String, List<String>> featProductImage = ImageAction.getImages(featProductIDs.get(i));
+				if(featProductImage != null){
+					img = featProductImage.get("Image").get(0);
+				}
+      		}
+      	 %>
+        <li style="max-width: 150px; width: 14.285714285714286%;"><a href="#">Slide<%=i+1%></a>
+        	<img src="<%=img %>" alt="thumb0<%=i+1%>"> </li>
+        	
+     <% img = "http://placehold.it/220x200";} %>
+     <% } %>
+    </ul><!-- ei-slider-thumbs -->
+</div>	
+
+<!--   carousel test-->
+
+<!-- carousel test -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+        <script type="text/javascript" src="carousel/js/jquery.eislideshow.js"></script>
+        <script type="text/javascript" src="carousel/js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#ei-slider').eislideshow({
+					easing		: 'easeOutExpo',
+					titleeasing	: 'easeOutExpo',
+					titlespeed	: 1200
+                });
+            });
+        </script>
+<!-- carousel test-->
+
+
+<h3>Trending Items</h3>
+<div class="row-fluid">
+	<ul class="thumbnails">
+		<li class="span3">
+			<div class="thumbnail">
+				<img src="http://placehold.it/220x200" alt="thumb-nail"
+					class="img-rounded">
+				<div class="caption">
+					<h5>
+						<a href="/product?id=2">Product title</a>
+					</h5>
+					<div class="rateit" data-rateit-value="2.5"
+						data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+					<div class="product-price">$20</div>
+					<p class="thumbnail-description">Product description</p>
+				</div>
+				<ul class="thumbnail-comments">
+					<li class="clearfix"><a href="/user"><img
+							src="http://placehold.it/32x32" alt="avatar" class="pull-left"></a>
+						<p class="thumbnail-comment">
+							<a href="/user">Name</a>: This product is awesome !
+						</p></li>
+				</ul>
+			</div>
+		</li>		
+	</ul>
+</div>
+
+<jsp:include page="/layout/footer.jsp" flush="true" />

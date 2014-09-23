@@ -1,0 +1,40 @@
+.thumbnail-description {
+	margin: 5px 0 5px;
+	overflow: hidden;
+	word-wrap: break-word;
+	font-size: 13px;
+	line-height: 1.3em;
+}
+
+.thumbnail-comments {
+	list-style: none;
+	margin: -4px;
+	color: #6D5353;
+	padding: 10px;
+	background-color: #F2F0F0;
+}
+
+.thumbnail-comments .thumbnail-comment {
+	width: 160px;
+	font-size: 11px;
+	float: left;
+	margin-left: 5px;
+}
+
+.thumbnail-comments .divider {
+	height: 1px;
+	margin: 6px 1px;
+	overflow: hidden;
+	background-color: #E5E5E5;
+	border-bottom: 1px solid white;
+}
+
+.thumbnail-more {
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.featured-image img {
+	max-height:200px;
+}

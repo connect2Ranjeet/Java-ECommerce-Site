@@ -1,0 +1,259 @@
+body {
+	padding-bottom: 40px;
+	color: #5A5A5A;
+}
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+	position: relative;
+	z-index: 10;
+	margin-top: 1%; /* Alberto: changed from 20px to 1% */
+	margin-bottom: -90px;
+	/* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+	max-width: 960px;
+}
+/* Remove border and change up box shadow for more contrast */
+.navbar .navbar-inner {
+	margin-top: 1.5%; /*Alberto: navbar float */
+	border: 0;
+	-webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
+	-moz-box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
+	box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+	/* Alberto: changed from 0 10px 20px */
+	background-color: #2C2C2C;
+	background-image: -moz-linear-gradient(top, #333, #222);
+	background-image: -ms-linear-gradient(top, #333, #222);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333), to(#222));
+	background-image: -webkit-linear-gradient(top, #333, #222);
+	background-image: -o-linear-gradient(top, #333, #222);
+	background-image: linear-gradient(top, #333, #222);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+}
+/* Downsize the brand/project name a bit */
+.navbar .brand {
+	color: #B1B1B1;
+	padding-top: 12px;
+	/*padding: 14px 20px 16px;*/
+	/* Increase vertical padding to match navbar links */
+	font-size: 24px;
+	font-weight: bold;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
+}
+/* Navbar links: increase padding for taller navbar */
+.navbar .nav>li>a {
+	padding: 15px 20px;
+	color: #B1B1B1;
+	text-shadow:none;
+}
+/* Offset the responsive button for proper vertical alignment */
+.navbar .btn-navbar {
+	margin-top: 10px;
+}
+
+.navbar-search {
+	padding: 5px 20px;
+}
+
+.navbar-search .search-query {
+	border-radius: 15px 0 0 15px;
+	padding: 4px 14px;
+	border-right-style: none;
+}
+
+.input-append .add-on:last-child {
+	border-radius: 0 15px 15px 0;
+	-moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	border-left-style: none;
+}
+
+.navbar-inverse .input-append .add-on:last-child {
+	-moz-transition: none 0s ease 0s;
+	background-color: #515151;
+	border-color: #111111;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0
+		rgba(255, 255, 255, 0.15);
+}
+
+/* */
+.caption h5 {
+	margin: 3px 0;
+}
+
+.product-price {
+	font-weight: bolder;
+	font-size: 20px;
+	color: #900;
+	margin-top: 2px;
+}
+
+.label {
+	margin-right: 6px;
+}
+
+label.valid {
+	width: 24px;
+	height: 24px;
+	background: url(/img/valid.png) center center no-repeat;
+	display: inline-block;
+	text-indent: -9999px;
+}
+
+label.error {
+	color: red;
+	padding: 2px 8px;
+	margin-top: 2px;
+}
+
+/*search box*/
+#search{
+//padding: 5px 20px;
+margin-left:7px;
+position: relative;
+float: none;
+margin-top: 14px;
+margin-bottom: 0;
+}
+
+#search input[type="text"] {
+    background: url(/img/search-white.png) no-repeat 10px 6px #444;
+    border: 0 none;
+    font:12px Helvetica;
+    color: #d7d7d7;
+    width:90px;
+    padding: 2px 15px 2px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 3px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 3px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 3px 2px rgba(0, 0, 0, 0.4) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#search input[type="text"]:focus {
+    background: url(/img/search-dark.png) no-repeat 10px 6px #fcfcfc;
+    color: #6a6f75;
+    width: 150px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+.navbar-inverse .brand, .navbar-inverse .nav > li > a {
+	color: #B1B1B1;
+}
+
+.container-fluid {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* Add a second header */
+.header-bottom
+{
+    width:100%;
+    font-size: 12px;    
+}
+
+.inner-header{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header-right li{
+    display: inline;
+    margin-left:30px;
+    list-style:none;
+    float:right;   
+    
+}
+
+.header-left li{ 
+    margin-left:-25px;
+    list-style:none;
+    display: inline;
+    margin-right:55px;
+     
+}
+
+.bottom-divider{
+     margin-top: -3px;  
+     margin-bottom: -5px;
+}
+
+
+.top-divider{
+     margin-bottom: -3px;   
+     margin-top: -5px;
+}
+
+/*made carousel for featured items*/
+.featured-image{
+    
+    padding-left: 15%;
+    float: left;
+}
+
+.featured-info{
+    display: inline-block;
+
+    padding-left: 12%;
+    padding-top: 40px;
+}
+    
+.featured-title{
+   font-size:20px;
+}
+
+.featured-description{
+    font-size: 14px;
+
+    font-weight: normal;
+    margin-top: 2px;
+}
+
+/*adjust margin from carousel*/
+.carousel {
+	margin-bottom: 0px;
+}
+
+.carousel-inner {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* change links colors */
+a {
+	color: #5A5A5A;
+<<<<<<< .mine
+}
+
+
+
+.pagination a{
+	cursor:pointer;
+}
+=======
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle 
+{
+	background-color: #111;
+	color: white;	
+}
+
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover 
+{
+	color: white;	
+}	>>>>>>> .r149

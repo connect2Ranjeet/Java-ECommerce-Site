@@ -1,0 +1,276 @@
+body {
+	padding-bottom: 40px;
+	color: #5A5A5A;
+}
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+	margin-top: 1%; /* Alberto: changed from 20px to 1% */
+	margin-bottom: 90px;
+	/* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+	max-width: 960px;
+}
+
+.caption h5 {
+	margin: 3px 0;
+}
+
+.product{
+	
+	
+}
+/*
+.product-highlight {
+border: 1px solid #BBB;
+box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
+margin-left: 9px;
+margin-top: 4px;
+}
+*/
+}
+.product-price {
+	font-weight: bolder;
+	font-size: 20px;
+	color: #900;
+	margin-top: 2px;
+}
+
+.label {
+	margin-right: 6px;
+}
+
+label.valid {
+	width: 24px;
+	height: 24px;
+	background: url(/img/valid.png) center center no-repeat;
+	display: inline-block;
+	text-indent: -9999px;
+}
+
+label.error {
+	color: red;
+	padding: 2px 8px;
+	margin-top: 2px;
+}
+
+/*search box(navbar height is 40px)*/
+#search{
+	position: relative;
+	float: none;
+	margin-bottom: 0;
+	height: 33px;
+	padding-top: 7px;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+#search input[type="text"] {
+    background: url(/img/search-white.png) no-repeat 10px 6px #444;
+    border: 0 none;
+    font:12px Helvetica;
+    color: #d7d7d7;
+    width:90px;
+    padding: 2px 15px 2px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 3px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 3px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 3px 2px rgba(0, 0, 0, 0.4) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#search input[type="text"]:focus {
+    background: url(/img/search-dark.png) no-repeat 10px 6px #fcfcfc;
+    color: #6a6f75;
+    width: 150px;
+    border: 1px solid #D7D7D7;
+    -webkit-box-shadow: 0 0px 0 rgba(255, 255, 255, 0.1), 0 0px 0 rgba(0, 0, 0, 0.9) inset;
+    -moz-box-shadow: 0 0px 0 rgba(255, 255, 255, 0.1), 0 0px 0 rgba(0, 0, 0, 0.9) inset;
+    box-shadow: 0 0px 0 rgba(255, 255, 255, 0.1), 0 0px 0 rgba(0, 0, 0, 0.9) inset;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+.navbar-inverse .brand, .navbar-inverse .nav > li > a {
+	color: #B1B1B1;
+}
+
+.container-fluid {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* Add a second header */
+.header-bottom
+{
+    width:100%;
+    font-size: 12px; 
+    margin-bottom:20px;
+}
+
+.inner-header{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header-right li{
+    display: inline;
+    margin-left:30px;
+    list-style:none;
+    float:right;   
+    
+}
+
+.header-left li{ 
+    margin-left:-25px;
+    list-style:none;
+    display: inline;
+    margin-right:55px;
+     
+}
+
+.bottom-divider{
+     margin-top: -3px;  
+     margin-bottom: -5px;
+}
+
+
+.top-divider{
+     margin-bottom: -3px;   
+     margin-top: -5px;
+}
+
+/* change links colors */
+a {
+	color: #5A5A5A;
+}
+
+.pagination a{
+	cursor:pointer;
+}
+
+
+.dataTables_length select {
+	width: auto !important;
+}
+
+.sorting{
+	cursor:pointer;
+}
+
+.dataTables_wrapper tr.odd, .dataTables_wrapper tr.odd td.sorting_1 {
+	background-color: #E6E6E6 !important;
+}
+
+.dataTables_wrapper tr.even td.sorting_1 {
+	background-color: #fff !important;
+}
+
+/*Product index page*/
+/*Love it div*/
+#loveit{
+	width: 15%;
+	margin-left: 4%;
+	margin-right: 4%;
+}
+
+#main_product{
+	width: 68.8%;
+	margin-left: 2%;
+	padding: 3% 3% 3% 3%;
+}
+
+#main_product_details_container{
+	margin-left: 0;
+	width: auto;
+}
+#main_product_details{
+	margin-left:0;
+}
+
+#main_product_description {
+	
+	width: 100%;
+	margin-left: 0;
+}
+
+#inner_main_product_details {
+	margin-left: 0;
+}
+
+.grid_product {
+	width: 220px;
+	height: 400px;
+	margin-left:0;
+}
+
+.list_product {
+	
+	width: 100%;
+	margin-left: 0;	
+	
+}
+
+/* Logo appear correctly */
+.navbar .brand {
+	padding: 7px 10px 7px;
+}
+
+/* cart */
+.cart_navbar {
+	vertical-align: middle;
+}
+
+/* cart link */
+#cart_link {
+font-size: 24px; padding-top: 9px; padding-bottom: 9px;
+}
+
+hr.faded {
+  clear: both; 
+  float: none; 
+  width: 100%; 
+  height: 1px;
+  margin: 1.4em 0;
+  border: none; 
+  background: #ddd;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      right bottom,
+      color-stop(0, rgb(255,255,255)),
+      color-stop(0.1, rgb(221,221,221)),
+      color-stop(0.9, rgb(221,221,221)),
+      color-stop(1, rgb(255,255,255))
+  );
+  background-image: -moz-linear-gradient(
+      left center,
+      rgb(255,255,255) 0%,
+      rgb(221,221,221) 10%,
+      rgb(221,221,221) 90%,
+      rgb(255,255,255) 100%
+  );
+}
+
+#myCarousel{
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+
+.row-fluid .span3 {
+	margin-left: 1%;
+}
+
+.navbar .nav > li > .dropdown-menu::before {
+	content:none;
+}
+
+.navbar .nav > li > .dropdown-menu::after {
+	content: none;
+}

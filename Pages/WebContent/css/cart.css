@@ -1,0 +1,9 @@
+#alsobought {
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+#alsobought li {
+	margin-right: 10px;
+	width: 150px;
+}

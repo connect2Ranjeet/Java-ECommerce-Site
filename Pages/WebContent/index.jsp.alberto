@@ -1,0 +1,103 @@
+<jsp:include page="/layout/header.jsp" flush="true" />
+<%@ page import="Action.*"%>
+<%@ page import="java.util.*"%>
+
+<%
+	/**
+	 * Updates:
+	 * 	1. Added site name to bottom header
+	 */
+	Map<String, List<String>> site = SiteAction.getSettings();
+%>
+<link href="/css/index.css" rel="stylesheet">
+
+<!-- carousel 2 -->
+<link rel="stylesheet" type="text/css" href="circularCarousel/css/style.css">
+<link rel="stylesheet" type="text/css" href="circularCarousel/css/jquery.jscrollpane.css">
+<link rel="stylesheet" type="text/css" href="circularCarousel/css/sdemo.css">
+<!-- carousel 2 -->
+
+<div class="header-bottom">
+	<hr class="top-divider">
+	<div class="inner-header">
+		<ul class="header-right">
+			<li> <a href="/home/contact.jsp">Contact</a></li>
+			<li> <a href="/home/about.jsp">About Us</a></li>
+		</ul>
+		<ul class="header-left">
+			<li><span style="font-weight: bolder;font-size: 16px;">Welcome to the <% if(site!=null){ %> 
+					  <%= site.get("Site_name").get(0) %> <% } %>
+					  Store</span></li>
+		</ul>
+	</div>
+	<hr class="bottom-divider">
+</div>
+
+<h3>Featured Items</h3>
+<!-- Test 2-->
+<div>
+	<div class="ca-container" id="ca-container">
+		<div class="ca-nav">
+			<span class="ca-nav-prev">Previous</span>
+			<span class="ca-nav-next">Next</span>
+		</div>
+		<div class="ca-wrapper" style="overflow: hidden;">
+		
+			<div class="ca-item ca-item-1" style="position: absolute; left: 0%;">
+				<div class="ca-item-main">
+						<!--<div class="ca-icon"></div>-->
+						<div class="ca-icon"> <img src=http://placehold.it/220x200> </div>
+						<h3>Title</h3>
+						<h4>
+							<span class="ca-quote">"</span>
+							<span>This a review.</span>
+						</h4>
+				</div>
+			</div>
+		</div>
+	</div>			
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script type="text/javascript" src="circularCarousel/js/jquery.contentcarousel.js"></script>
+<script type="text/javascript" src="circularCarousel/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="circularCarousel/js/jquery.mousewheel.js"></script>
+<script type="text/javascript">
+			$('#ca-container').contentcarousel();
+		</script>
+
+
+
+
+<!-- Test 2-->
+
+<h3>Trending Items</h3>
+<div class="row-fluid">
+	<ul class="thumbnails">
+		<li class="span3">
+			<div class="thumbnail">
+				<img src="http://placehold.it/220x200" alt="thumb-nail"
+					class="img-rounded">
+				<div class="caption">
+					<h5>
+						<a href="/product?id=2">Product title</a>
+					</h5>
+					<div class="rateit" data-rateit-value="2.5"
+						data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+					<div class="product-price">$20</div>
+					<p class="thumbnail-description">Product description</p>
+				</div>
+				<ul class="thumbnail-comments">
+					<li class="clearfix"><a href="/user"><img
+							src="http://placehold.it/32x32" alt="avatar" class="pull-left"></a>
+						<p class="thumbnail-comment">
+							<a href="/user">Name</a>: This product is awesome !
+						</p></li>
+				</ul>
+			</div>
+		</li>		
+	</ul>
+</div>
+
+<jsp:include page="/layout/footer.jsp" flush="true" />

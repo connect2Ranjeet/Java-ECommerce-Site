@@ -1,0 +1,141 @@
+<jsp:include page="/layout/header.jsp" flush="true" />
+<%@ page import="Action.*"%>
+<%@ page import="java.util.*"%>
+
+<%
+	/**
+	 * Updates:
+	 * 	1. Added site name to bottom header
+	 */
+	Map<String, List<String>> site = SiteAction.getSettings();
+%>
+<link href="/css/index.css" rel="stylesheet">
+
+<!-- carousel 2 -->
+<link rel="stylesheet" type="text/css" href="circularCarousel/css/style.css">
+<link rel="stylesheet" type="text/css" href="circularCarousel/css/jquery.jscrollpane.css">
+<!-- carousel 2 -->
+
+<div class="header-bottom">
+	<hr class="top-divider">
+	<div class="inner-header">
+		<ul class="header-right">
+			<li> <a href="/home/contact.jsp">Contact</a></li>
+			<li> <a href="/home/about.jsp">About Us</a></li>
+		</ul>
+		<ul class="header-left">
+			<li><span style="font-weight: bolder;font-size: 16px;">Welcome to the <% if(site!=null){ %> 
+					  <%= site.get("Site_name").get(0) %> <% } %>
+					  Store</span></li>
+		</ul>
+	</div>
+	<hr class="bottom-divider">
+</div>
+
+<%
+Map<String, List<String>> feats = ProductAction.getFeatured();
+if(feats != null){
+%>
+<h3>Featured Items</h3>
+<!-- Test 2-->
+<div>
+	<div class="ca-container" id="ca-container">
+		<div class="ca-nav">
+			<span class="ca-nav-prev">Previous</span>
+			<span class="ca-nav-next">Next</span>
+		</div>
+		<div class="ca-wrapper" style="overflow: hidden;">
+		<%
+			List<String> featProductIDs = feats.get("Product_ID");
+			System.out.println(featProductIDs.size());
+			double increment = 0;
+			for(int i=0; i<featProductIDs.size();i++){
+				Map<String, List<String>> featProduct = ProductAction.getProductByID(Integer.parseInt(featProductIDs.get(i)));
+				Map<String, List<String>> featProductImage = ImageAction.getImages(featProductIDs.get(i));
+				Map<String, List<String>> product_reviews = ReviewAction.getByProductId(featProductIDs.get(i));
+				String img = "http://placehold.it/220x200";
+				String comment = "Great product.";
+				String username = "gerBear";
+				String user_id = "20";
+				
+				if(featProductImage != null){
+					img = featProductImage.get("Image").get(0);
+				}
+				if(product_reviews!=null) {
+					if (product_reviews.get("ID").size()>0) {
+						/*get first review*/
+						comment = product_reviews.get("Comment").get(0);
+						/*comment = "Test featured items reviews clipTest featured items reviews clipTest featured items reviews clip" +
+								"Test featured items reviews clipTest featured items reviews clipTest featured items reviews clipTest featured items reviews clip"
+								+ "Test featured items reviews clipTest featured items reviews clipTest featured items reviews clip";*/
+								
+						/*clip review greater than 100 charaters*/
+						if(comment.length() > 100){
+							comment = comment.substring(0,100) + "...";
+						}
+						
+						user_id = product_reviews.get("User_ID").get(0);
+						username = UserAction.getUsernameById(user_id);
+					}
+				}
+		%>	
+			<div class="ca-item ca-item-<%= i+1 %>" style="position: absolute; left: <%=increment%>%;">
+				<div class="ca-item-main">
+						<!--<div class="ca-icon"></div>-->
+						<a href="/product?id=<%= featProductIDs.get(i) %>">
+							<img src=<%=img %> style="width:200px; height:200px">
+						</a>
+						<h5><a href="/product?id=<%= featProductIDs.get(i) %>"><%= featProduct.get("Name").get(0) %></a></h5>
+						<h4>
+							<span class="ca-quote">"</span>
+							<span><%= comment %>
+							<br><p style="text-align:right"> <a href="/user?id=<%= user_id %>" style="font-size:16px"><%= username %></a></p></span>
+						</h4>
+				</div>
+			</div>
+			<%  increment = 33.33 + increment;}} %>
+		</div>
+	</div>			
+</div>
+
+<script type="text/javascript" src="circularCarousel/js/jquery.contentcarousel.js"></script>
+<script type="text/javascript" src="circularCarousel/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="circularCarousel/js/jquery.mousewheel.js"></script>
+<script type="text/javascript">
+			$('#ca-container').contentcarousel();
+		</script>
+
+
+
+
+<!-- Test 2-->
+
+<h3>Trending Items</h3>
+<div class="row-fluid">
+	<ul class="thumbnails">
+		<li class="span3">
+			<div class="thumbnail">
+				<img src="http://placehold.it/220x200" alt="thumb-nail"
+					class="img-rounded">
+				<div class="caption">
+					<h5>
+						<a href="/product?id=2">Product title</a>
+					</h5>
+					<div class="rateit" data-rateit-value="2.5"
+						data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+					<div class="product-price">$20</div>
+					<p class="thumbnail-description">Product description</p>
+				</div>
+				<ul class="thumbnail-comments">
+					<li class="clearfix"><a href="/user"><img
+							src="http://placehold.it/32x32" alt="avatar" class="pull-left"></a>
+						<p class="thumbnail-comment">
+							<a href="/user">Name</a>: This product is awesome !
+						</p></li>
+				</ul>
+			</div>
+		</li>		
+	</ul>
+</div>
+
+<jsp:include page="/layout/footer.jsp" flush="true" />

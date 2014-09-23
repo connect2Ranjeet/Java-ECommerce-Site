@@ -1,0 +1,19 @@
+#reviews {
+	list-style: none;
+	margin: 0;
+}
+
+#youmaylike{
+	list-style: none;
+	margin: 0;		
+}
+
+.product-review{
+	margin:5px;
+	margin-bottom:20px;
+}
+
+
+#view-list{
+	display:none;
+}
